@@ -12,5 +12,6 @@ namespace LibraryManagmentAPI.Models
         public bool IsAvailable { get; set; } = true;
 
         public required List<Guid> AuthorIds { get; set; }
+        public required List<Guid> BorrowIds { get; set; }
     }
 }

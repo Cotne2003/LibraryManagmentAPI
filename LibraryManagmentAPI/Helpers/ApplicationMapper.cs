@@ -14,7 +14,10 @@ namespace LibraryManagmentAPI.Helpers
             CreateMap<Member, AddMemberDto>().ReverseMap();
             CreateMap<Book, AddBookDto>().ReverseMap();
             CreateMap<Book, BookDto>()
-                .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.Authors.Select(a => a.Id).ToList()));
+                .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.Authors.Select(a => a.Id).ToList()))
+                .ForMember(dest => dest.BorrowIds, opt => opt.MapFrom(src => src.Borrows.Select(b => b.Id).ToList()));
+            CreateMap<Borrow, AddBorrowDto>().ReverseMap();
+            CreateMap<Borrow, BorrowDto>().ReverseMap();
         }
     }
 }

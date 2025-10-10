@@ -26,6 +26,7 @@ namespace LibraryManagmentAPI.Controllers
         {
             var books = await _dbContext.Books
                 .Include(b => b.Authors)
+                .Include(b => b.Borrows)
                 .ToListAsync();
 
             var bookDtos = _mapper.Map<List<BookDto>>(books);
@@ -47,7 +48,9 @@ namespace LibraryManagmentAPI.Controllers
             await _dbContext.Books.AddAsync(mappedBook);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAllBooks), new { id = mappedBook.Id }, mappedBook);
+            var bookDto = _mapper.Map<BookDto>(mappedBook);
+
+            return CreatedAtAction(nameof(GetAllBooks), new { id = mappedBook.Id }, bookDto);
         }
 
         [HttpDelete("{id}")]

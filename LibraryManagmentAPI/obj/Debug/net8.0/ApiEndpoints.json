@@ -84,6 +84,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LibraryManagmentAPI.Controllers.BorrowsController",
+    "Method": "GetAllBorrows",
+    "RelativePath": "api/Borrows",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryManagmentAPI.Controllers.BorrowsController",
+    "Method": "AddBorrow",
+    "RelativePath": "api/Borrows",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addBorrowDto",
+        "Type": "LibraryManagmentAPI.Models.AddBorrowDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryManagmentAPI.Controllers.BorrowsController",
+    "Method": "ReturnBorrow",
+    "RelativePath": "api/Borrows/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LibraryManagmentAPI.Controllers.MembersController",
     "Method": "GettAllMembers",
     "RelativePath": "api/Members",

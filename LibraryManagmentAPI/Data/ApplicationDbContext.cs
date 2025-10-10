@@ -21,6 +21,18 @@ namespace LibraryManagmentAPI.Data
             modelBuilder.Entity<Book>()
                 .HasMany(b => b.Authors)
                 .WithMany(a => a.Books);
+
+            modelBuilder.Entity<Borrow>()
+                .HasOne(b => b.Book)
+                .WithMany(b => b.Borrows)
+                .HasForeignKey(b => b.BookId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Borrow>()
+                .HasOne(b => b.Member)
+                .WithMany(m => m.Borrows)
+                .HasForeignKey(b => b.MemberId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
