@@ -84,6 +84,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LibraryManagmentAPI.Controllers.BooksController",
+    "Method": "GetAllAvailableBooks",
+    "RelativePath": "api/Books/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryManagmentAPI.Controllers.BooksController",
+    "Method": "GetUnavailableBooks",
+    "RelativePath": "api/Books/unavailable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LibraryManagmentAPI.Controllers.BorrowsController",
     "Method": "GetAllBorrows",
     "RelativePath": "api/Borrows",

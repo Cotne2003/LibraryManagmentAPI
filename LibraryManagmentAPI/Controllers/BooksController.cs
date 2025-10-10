@@ -34,6 +34,32 @@ namespace LibraryManagmentAPI.Controllers
             return Ok(bookDtos);
         }
 
+        [HttpGet("available")]
+        public async Task<IActionResult> GetAllAvailableBooks()
+        {
+            var availableBooks = await _dbContext.Books
+                .Where(b => b.IsAvailable == true)
+                .Include(b => b.Authors)
+                .Include(b => b.Borrows)
+                .ToListAsync();
+
+            var availableBookDtos = _mapper.Map<List<BookDto>>(availableBooks);
+            return Ok(availableBookDtos);
+        }
+
+        [HttpGet("unavailable")]
+        public async Task<IActionResult> GetUnavailableBooks()
+        {
+            var unavailableBooks = await _dbContext.Books
+                .Where(b => b.IsAvailable == false)
+                .Include(b => b.Authors)
+                .Include(b => b.Borrows)
+                .ToListAsync();
+
+            var unavailableBookDtos = _mapper.Map<List<BookDto>>(unavailableBooks);
+            return Ok(unavailableBookDtos);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddBook([FromBody] AddBookDto addBookDto)
         {
