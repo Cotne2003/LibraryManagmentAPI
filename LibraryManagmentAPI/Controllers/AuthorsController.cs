@@ -24,18 +24,24 @@ namespace LibraryManagmentAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAuthors()
         {
-            return Ok(await _dbContext.Authors.ToListAsync());
+            var authors = await _dbContext.Authors
+                .Include(a => a.Books)
+                .ToListAsync();
+
+            var authorDtos = _mapper.Map<List<AuthorDto>>(authors);
+
+            return Ok(authorDtos);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAuthor(AddAuthorDto addAuthorDto)
+        public async Task<IActionResult> AddAuthor([FromBody] AddAuthorDto addAuthorDto)
         {
             var mappedAuthor = _mapper.Map<Author>(addAuthorDto);
 
             await _dbContext.Authors.AddAsync(mappedAuthor);
             await _dbContext.SaveChangesAsync();
 
-            return Ok(mappedAuthor);
+            return CreatedAtAction(nameof(GetAllAuthors), new { id = mappedAuthor.Id }, mappedAuthor);
         }
 
         [HttpDelete("{id}")]
@@ -43,11 +49,11 @@ namespace LibraryManagmentAPI.Controllers
         {
             var deleteAuthor = await _dbContext.Authors.FindAsync(id);
             if (deleteAuthor is null)
-                return BadRequest("Author not found");
+                return NotFound();
 
             _dbContext.Authors.Remove(deleteAuthor);
             await _dbContext.SaveChangesAsync();
-            return Ok($"{deleteAuthor.Name} deleted successfully");
+            return NoContent();
         }
     }
 }

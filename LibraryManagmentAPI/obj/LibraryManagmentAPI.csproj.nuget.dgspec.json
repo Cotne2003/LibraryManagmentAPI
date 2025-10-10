@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj": {}
+    "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj": {
+    "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
         "projectName": "LibraryManagmentAPI",
-        "projectPath": "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
+        "projectPath": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
         "packagesPath": "C:\\Users\\Tsotne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\obj\\",
+        "outputPath": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

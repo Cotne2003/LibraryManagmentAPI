@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z0SJmCwAG6k=",
+  "dgSpecHash": "wvNLWJZvA7c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tsotne\\OneDrive\\Desktop\\LibraryManagmentAPI\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
+  "projectFilePath": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\LibraryManagmentAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tsotne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Tsotne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
