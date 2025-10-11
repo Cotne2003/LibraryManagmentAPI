@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LibraryManagmentAPI.Data;
+using LibraryManagmentAPI.Helpers;
 using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Models.Entities;
 using LibraryManagmentAPI.Repositories;
@@ -47,39 +48,32 @@ namespace LibraryManagmentAPI.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<BookDto>> GetAllAvailableBooks()
+        public async Task<IEnumerable<BookDto>> GetAllBooks([FromQuery] QueryObject query)
         {
-            var availableBooks = await _context.Books
-                .Where(b => b.IsAvailable == true)
+            var skipNumber = (query.PageNumber -1) * query.PageSize;
+
+            var booksQuery = _context.Books
                 .Include(b => b.Authors)
                 .Include(b => b.Borrows)
-                .ToListAsync();
+                .AsQueryable();
 
-            var availableBookDtos = _mapper.Map<List<BookDto>>(availableBooks);
-            return availableBookDtos;
-        }
+            if (query.Availability.HasValue)
+                booksQuery = booksQuery.Where(b => b.IsAvailable == query.Availability);
 
-        public async Task<IEnumerable<BookDto>> GetAllBooks()
-        {
-            var books = await _context.Books
-                .Include(b => b.Authors)
-                .Include(b => b.Borrows)
+            if (query.Year.HasValue)
+            {
+
+
+                booksQuery = booksQuery.Where(b => query.Year <= b.Year);
+            }
+
+            var books = await booksQuery
+                .Skip(skipNumber)
+                .Take(query.PageSize)
                 .ToListAsync();
 
             var bookDtos = _mapper.Map<List<BookDto>>(books);
             return bookDtos;
-        }
-
-        public async Task<IEnumerable<BookDto>> GetUnavailableBooks()
-        {
-            var unavailableBooks = await _context.Books
-                .Where(b => b.IsAvailable == false)
-                .Include(b => b.Authors)
-                .Include(b => b.Borrows)
-                .ToListAsync();
-
-            var unavailableBookDtos = _mapper.Map<List<BookDto>>(unavailableBooks);
-            return unavailableBookDtos;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LibraryManagmentAPI.Data;
+using LibraryManagmentAPI.Helpers;
 using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Models.Entities;
 using LibraryManagmentAPI.Repositories;
@@ -21,27 +22,11 @@ namespace LibraryManagmentAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllBooks()
+        public async Task<IActionResult> GetAllBooks([FromQuery] QueryObject query)
         {
-            var bookDtos = await _booksService.GetAllBooks();
+            var bookDtos = await _booksService.GetAllBooks(query);
 
             return Ok(bookDtos);
-        }
-
-        [HttpGet("available")]
-        public async Task<IActionResult> GetAllAvailableBooks()
-        {
-            var availableBookDtos = await _booksService.GetAllAvailableBooks();
-
-            return Ok(availableBookDtos);
-        }
-
-        [HttpGet("unavailable")]
-        public async Task<IActionResult> GetUnavailableBooks()
-        {
-            var unavailableBookDtos = await _booksService.GetUnavailableBooks();
-
-            return Ok(unavailableBookDtos);
         }
 
         [HttpPost]

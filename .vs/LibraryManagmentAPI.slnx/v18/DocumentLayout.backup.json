@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Tsotne\\Desktop\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\repositories\\imembersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\repositories\\imembersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\helpers\\queryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\helpers\\queryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\services\\membersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\services\\membersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\services\\booksservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\services\\booksservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Program.cs",
               "RelativeDocumentMoniker": "LibraryManagmentAPI\\Program.cs",
               "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Program.cs",
               "RelativeToolTip": "LibraryManagmentAPI\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-08T15:23:27.486Z",
               "IsPinned": true,
@@ -44,41 +40,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MembersService.cs",
-              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\MembersService.cs",
-              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Services\\MembersService.cs",
-              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\MembersService.cs",
-              "RelativeToolTip": "LibraryManagmentAPI\\Services\\MembersService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T01:30:04.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MembersController.cs",
-              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\MembersController.cs",
-              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Controllers\\MembersController.cs",
-              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\MembersController.cs",
-              "RelativeToolTip": "LibraryManagmentAPI\\Controllers\\MembersController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAqwB8AAABNAAAAAAAAAA==",
+              "Title": "BooksService.cs",
+              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\BooksService.cs",
+              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Services\\BooksService.cs",
+              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\BooksService.cs",
+              "RelativeToolTip": "LibraryManagmentAPI\\Services\\BooksService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAqwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T01:26:48.643Z",
+              "WhenOpened": "2025-10-11T02:31:46.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IMembersRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Repositories\\IMembersRepository.cs",
-              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Repositories\\IMembersRepository.cs",
-              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Repositories\\IMembersRepository.cs",
-              "RelativeToolTip": "LibraryManagmentAPI\\Repositories\\IMembersRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Title": "QueryObject.cs",
+              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Helpers\\QueryObject.cs",
+              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Helpers\\QueryObject.cs",
+              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Helpers\\QueryObject.cs",
+              "RelativeToolTip": "LibraryManagmentAPI\\Helpers\\QueryObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T01:27:57.624Z",
+              "WhenOpened": "2025-10-11T02:31:26.217Z",
               "EditorCaption": ""
             }
           ]
