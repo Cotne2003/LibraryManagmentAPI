@@ -2,6 +2,7 @@
 using LibraryManagmentAPI.Data;
 using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Models.Entities;
+using LibraryManagmentAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,23 +13,17 @@ namespace LibraryManagmentAPI.Controllers
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly IMapper _mapper;
+        private readonly IAuthorsRepository _authorsService;
 
-        public AuthorsController(ApplicationDbContext dbContext, IMapper mapper)
+        public AuthorsController(IAuthorsRepository authorsService)
         {
-            _dbContext = dbContext;
-            _mapper = mapper;
+            _authorsService = authorsService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAuthors()
         {
-            var authors = await _dbContext.Authors
-                .Include(a => a.Books)
-                .ToListAsync();
-
-            var authorDtos = _mapper.Map<List<AuthorDto>>(authors);
+            var authorDtos = await _authorsService.GetAllAuthors();
 
             return Ok(authorDtos);
         }
@@ -36,10 +31,7 @@ namespace LibraryManagmentAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAuthor([FromBody] AddAuthorDto addAuthorDto)
         {
-            var mappedAuthor = _mapper.Map<Author>(addAuthorDto);
-
-            await _dbContext.Authors.AddAsync(mappedAuthor);
-            await _dbContext.SaveChangesAsync();
+            var mappedAuthor = await _authorsService.AddAuthor(addAuthorDto);
 
             return CreatedAtAction(nameof(GetAllAuthors), new { id = mappedAuthor.Id }, mappedAuthor);
         }
@@ -47,12 +39,8 @@ namespace LibraryManagmentAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(Guid id)
         {
-            var deleteAuthor = await _dbContext.Authors.FindAsync(id);
-            if (deleteAuthor is null)
-                return NotFound();
+            await _authorsService.DeleteAuthor(id);
 
-            _dbContext.Authors.Remove(deleteAuthor);
-            await _dbContext.SaveChangesAsync();
             return NoContent();
         }
     }

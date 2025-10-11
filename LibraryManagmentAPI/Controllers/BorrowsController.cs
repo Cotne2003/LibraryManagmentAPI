@@ -2,6 +2,7 @@
 using LibraryManagmentAPI.Data;
 using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Models.Entities;
+using LibraryManagmentAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,20 +13,17 @@ namespace LibraryManagmentAPI.Controllers
     [ApiController]
     public class BorrowsController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly IMapper _mapper;
+        private readonly IBorrowsRepository _borrowsRepository;
 
-        public BorrowsController(ApplicationDbContext dbContext, IMapper mapper)
+        public BorrowsController(IBorrowsRepository borrowsRepository)
         {
-            _dbContext = dbContext;
-            _mapper = mapper;
+            _borrowsRepository = borrowsRepository;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllBorrows()
         {
-            var borrows = await _dbContext.Borrows.ToListAsync();
-            var mappedBorrowDtos = _mapper.Map<List<BorrowDto>>(borrows);
+            var mappedBorrowDtos = await _borrowsRepository.GetAllBorrows();
 
             return Ok(mappedBorrowDtos);
         }
@@ -33,45 +31,15 @@ namespace LibraryManagmentAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBorrow(AddBorrowDto addBorrowDto)
         {
-            var mappedBorrow = _mapper.Map<Borrow>(addBorrowDto);
+            var borrowDto = await _borrowsRepository.AddBorrow(addBorrowDto);
 
-            var borrowedBook = await _dbContext.Books.FindAsync(addBorrowDto.BookId);
-
-            if (borrowedBook is null)
-                return NotFound($"No book found with ID: {addBorrowDto.BookId}");
-            else if (borrowedBook.IsAvailable == false)
-                return BadRequest($"{borrowedBook.Title} is not available right now.");
-
-            borrowedBook.IsAvailable = false;
-            _dbContext.Books.Update(borrowedBook);
-
-            var borrowDto = _mapper.Map<BorrowDto>(mappedBorrow);
-
-            await _dbContext.Borrows.AddAsync(mappedBorrow);
-            await _dbContext.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetAllBorrows), new { id = mappedBorrow.Id }, borrowDto);
+            return CreatedAtAction(nameof(GetAllBorrows), new { id = borrowDto.Id }, borrowDto);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> ReturnBorrow(Guid id)
         {
-            var borrow = await _dbContext.Borrows.FindAsync(id);
-
-            if (borrow is null)
-                return NotFound($"No borrow record found with ID: {id}");
-
-            var borrowedBook = await _dbContext.Books.FindAsync(borrow.BookId);
-            if (borrowedBook is null)
-                return NotFound($"No book found with ID: {borrow.BookId}");
-
-            borrowedBook.IsAvailable = true;
-            borrow.ReturnDate = DateTime.UtcNow;
-
-            _dbContext.Books.Update(borrowedBook);
-            _dbContext.Borrows.Remove(borrow);
-
-            await _dbContext.SaveChangesAsync();
+            await _borrowsRepository.DeleteBorrow(id);
 
             return NoContent();
         }
