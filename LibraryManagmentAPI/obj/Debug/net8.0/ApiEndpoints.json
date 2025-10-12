@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDto",
-        "Type": "LibraryManagmentAPI.Models.TestUser.UserDto",
+        "Name": "logAuthorDto",
+        "Type": "LibraryManagmentAPI.Models.LogAuthorDto",
         "IsRequired": true
       }
     ],
@@ -24,8 +24,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDto",
-        "Type": "LibraryManagmentAPI.Models.TestUser.UserDto",
+        "Name": "addAuthorDto",
+        "Type": "LibraryManagmentAPI.Models.AddAuthorDto",
         "IsRequired": true
       }
     ],

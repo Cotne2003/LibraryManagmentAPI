@@ -1,4 +1,6 @@
-﻿using LibraryManagmentAPI.Models.TestUser;
+﻿using LibraryManagmentAPI.Models;
+using LibraryManagmentAPI.Models.TestUser;
+using LibraryManagmentAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,64 +15,27 @@ namespace LibraryManagmentAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        private readonly IAuthRepository _authService;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IAuthRepository authService)
         {
-            _configuration = configuration;
+            _authService = authService;
         }
 
-        private static User user = new User();
-
         [HttpPost("register")]
-        public IActionResult Register(UserDto userDto)
+        public async Task<IActionResult> Register(AddAuthorDto addAuthorDto)
         {
-            var hashedPassword = new PasswordHasher<User>()
-                .HashPassword(user, userDto.Password);
+            var author = await _authService.Register(addAuthorDto);
 
-            user.Name = userDto.Name;
-            user.PasswordHash = hashedPassword;
-
-            return Ok(user);
+            return Ok(author);
         }
 
         [HttpPost("login")]
-        public IActionResult Login(UserDto userDto)
+        public async Task<IActionResult> Login(LogAuthorDto logAuthorDto)
         {
-            if (user.Name != userDto.Name)
-            {
-                return BadRequest("User not found.");
-            }
-            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash, userDto.Password) == PasswordVerificationResult.Failed)
-            {
-                return BadRequest("Wrong password.");
-            }
-
-            var token = CreateToken(user);
+            var token = await _authService.Login(logAuthorDto);
 
             return Ok(token);
-        }
-
-        private string CreateToken(User user)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Name)
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:Token")!));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-
-            var tokenDescriptor = new JwtSecurityToken(
-                issuer: _configuration.GetValue<string>("AppSettings:Issuer"),
-                audience: _configuration.GetValue<string>("AppSettings:Audience"),
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
     }
 }

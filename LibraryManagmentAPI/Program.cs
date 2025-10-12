@@ -21,6 +21,7 @@ builder.Services.AddScoped<IAuthorsRepository, AuthorsService>();
 builder.Services.AddScoped<IBooksRepository, BooksService>();
 builder.Services.AddScoped<IBorrowsRepository, BorrowsService>();
 builder.Services.AddScoped<IMembersRepository, MembersService>();
+builder.Services.AddScoped<IAuthRepository, AuthService>();
 
 var app = builder.Build();
 
