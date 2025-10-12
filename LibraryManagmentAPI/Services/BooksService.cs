@@ -50,8 +50,6 @@ namespace LibraryManagmentAPI.Services
 
         public async Task<IEnumerable<BookDto>> GetAllBooks([FromQuery] QueryObject query)
         {
-            var skipNumber = (query.PageNumber -1) * query.PageSize;
-
             var booksQuery = _context.Books
                 .Include(b => b.Authors)
                 .Include(b => b.Borrows)
@@ -61,12 +59,9 @@ namespace LibraryManagmentAPI.Services
                 booksQuery = booksQuery.Where(b => b.IsAvailable == query.Availability);
 
             if (query.Year.HasValue)
-            {
-
-
                 booksQuery = booksQuery.Where(b => query.Year <= b.Year);
-            }
 
+            var skipNumber = (query.PageNumber - 1) * query.PageSize;
             var books = await booksQuery
                 .Skip(skipNumber)
                 .Take(query.PageSize)
