@@ -347,3 +347,4 @@ C:\Users\Tsotne\Desktop\test\LibraryManagmentAPI\obj\Debug\net8.0\refint\Library
 C:\Users\Tsotne\Desktop\test\LibraryManagmentAPI\obj\Debug\net8.0\LibraryManagmentAPI.pdb
 C:\Users\Tsotne\Desktop\test\LibraryManagmentAPI\obj\Debug\net8.0\LibraryManagmentAPI.genruntimeconfig.cache
 C:\Users\Tsotne\Desktop\test\LibraryManagmentAPI\obj\Debug\net8.0\ref\LibraryManagmentAPI.dll
+C:\Users\Tsotne\Desktop\test\LibraryManagmentAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

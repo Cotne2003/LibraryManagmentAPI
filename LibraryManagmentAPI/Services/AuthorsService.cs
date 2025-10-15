@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using LibraryManagmentAPI.Data;
 using LibraryManagmentAPI.Models;
-using LibraryManagmentAPI.Models.Entities;
 using LibraryManagmentAPI.Repositories;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace LibraryManagmentAPI.Services
 {
@@ -18,16 +15,6 @@ namespace LibraryManagmentAPI.Services
         {
             _context = context;
             _mapper = mapper;
-        }
-
-        public async Task<Author> AddAuthor([FromBody] AddAuthorDto addAuthorDto)
-        {
-            var mappedAuthor = _mapper.Map<Author>(addAuthorDto);
-
-            await _context.Authors.AddAsync(mappedAuthor);
-            await _context.SaveChangesAsync();
-
-            return mappedAuthor;
         }
 
         public async Task DeleteAuthor(Guid id)

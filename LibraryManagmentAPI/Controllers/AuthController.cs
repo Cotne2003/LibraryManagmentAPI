@@ -1,13 +1,6 @@
 ﻿using LibraryManagmentAPI.Models;
-using LibraryManagmentAPI.Models.TestUser;
 using LibraryManagmentAPI.Repositories;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace LibraryManagmentAPI.Controllers
 {
@@ -36,6 +29,14 @@ namespace LibraryManagmentAPI.Controllers
             var token = await _authService.Login(logAuthorDto);
 
             return Ok(token);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken(RefreshTokenRequestDto refreshTokenRequestDto)
+        {
+            var result = await _authService.RefreshTokens(refreshTokenRequestDto);
+
+            return Ok(result);
         }
     }
 }

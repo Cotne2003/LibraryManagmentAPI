@@ -1,10 +1,6 @@
-﻿using LibraryManagmentAPI.Data;
-using LibraryManagmentAPI.Models;
-using LibraryManagmentAPI.Models.Entities;
+﻿using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentAPI.Controllers
 {

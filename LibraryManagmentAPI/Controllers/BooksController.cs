@@ -1,12 +1,8 @@
-﻿using AutoMapper;
-using LibraryManagmentAPI.Data;
-using LibraryManagmentAPI.Helpers;
+﻿using LibraryManagmentAPI.Helpers;
 using LibraryManagmentAPI.Models;
-using LibraryManagmentAPI.Models.Entities;
 using LibraryManagmentAPI.Repositories;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentAPI.Controllers
 {
@@ -29,6 +25,7 @@ namespace LibraryManagmentAPI.Controllers
             return Ok(bookDtos);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddBook([FromBody] AddBookDto addBookDto)
         {
@@ -37,6 +34,7 @@ namespace LibraryManagmentAPI.Controllers
             return CreatedAtAction(nameof(GetAllBooks), new { id = bookDto.Id }, bookDto);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(Guid id)
         {

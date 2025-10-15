@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Tsotne\\Desktop\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\services\\authorsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\services\\authorsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\repositories\\iauthorsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\repositories\\iauthorsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|solutionrelative:librarymanagmentapi\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C645E518-DBA3-43E0-76DF-EA1A59200C26}|LibraryManagmentAPI\\LibraryManagmentAPI.csproj|c:\\users\\tsotne\\desktop\\test\\librarymanagmentapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,13 +30,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Program.cs",
               "RelativeDocumentMoniker": "LibraryManagmentAPI\\Program.cs",
               "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Program.cs",
               "RelativeToolTip": "LibraryManagmentAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-08T15:23:27.486Z",
               "IsPinned": true,
@@ -37,14 +45,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "LibraryManagmentAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Title": "AuthorsService.cs",
+              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\AuthorsService.cs",
+              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Services\\AuthorsService.cs",
+              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Services\\AuthorsService.cs",
+              "RelativeToolTip": "LibraryManagmentAPI\\Services\\AuthorsService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T17:39:44.601Z",
+              "WhenOpened": "2025-10-15T00:54:45.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAuthorsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Repositories\\IAuthorsRepository.cs",
+              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Repositories\\IAuthorsRepository.cs",
+              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Repositories\\IAuthorsRepository.cs",
+              "RelativeToolTip": "LibraryManagmentAPI\\Repositories\\IAuthorsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T00:54:37.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\AuthorsController.cs",
+              "RelativeDocumentMoniker": "LibraryManagmentAPI\\Controllers\\AuthorsController.cs",
+              "ToolTip": "C:\\Users\\Tsotne\\Desktop\\test\\LibraryManagmentAPI\\Controllers\\AuthorsController.cs",
+              "RelativeToolTip": "LibraryManagmentAPI\\Controllers\\AuthorsController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T00:53:01.193Z",
               "EditorCaption": ""
             }
           ]

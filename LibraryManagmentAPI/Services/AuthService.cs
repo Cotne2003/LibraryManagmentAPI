@@ -1,14 +1,13 @@
 ﻿using LibraryManagmentAPI.Data;
 using LibraryManagmentAPI.Models;
 using LibraryManagmentAPI.Models.Entities;
-using LibraryManagmentAPI.Models.TestUser;
 using LibraryManagmentAPI.Repositories;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace LibraryManagmentAPI.Services
@@ -24,7 +23,7 @@ namespace LibraryManagmentAPI.Services
             _configuration = configuration;
         }
 
-        public async Task<string> Login(LogAuthorDto logAuthorDto)
+        public async Task<TokenResponseDto> Login(LogAuthorDto logAuthorDto)
         {
             var author = await _context.Authors
                 .FirstOrDefaultAsync(a => a.Name.ToLower() == logAuthorDto.Name.ToLower());
@@ -38,7 +37,13 @@ namespace LibraryManagmentAPI.Services
                 new Exception("Password is incorrect");
             }
 
-            return CreateToken(author);
+            var response = new TokenResponseDto
+            {
+                AccessToken = CreateToken(author),
+                RefreshToken = await GenerateAndSaveRefreshToken(author)
+            };
+
+            return response;
         }
 
         public async Task<Author> Register(AddAuthorDto addAuthorDto)
@@ -58,6 +63,45 @@ namespace LibraryManagmentAPI.Services
             await _context.SaveChangesAsync();
 
             return author;
+        }
+
+        public async Task<TokenResponseDto> RefreshTokens(RefreshTokenRequestDto refreshTokenRequestDto)
+        {
+                var author = await ValidateRefreshToken(refreshTokenRequestDto.AuthorId, refreshTokenRequestDto.RefreshToken);
+
+                var response = new TokenResponseDto
+                {
+                    AccessToken = CreateToken(author),
+                    RefreshToken = await GenerateAndSaveRefreshToken(author)
+                };
+
+                return response;
+        }
+
+        private async Task<Author> ValidateRefreshToken(Guid authorId, string refreshToken)
+        {
+            var author = await _context.Authors.FindAsync(authorId);
+            if (author is null || author.RefreshToken != refreshToken || author.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                throw new Exception("Invalid author id or refresh token");
+
+            return author;
+        }
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
+        }
+
+        private async Task<string> GenerateAndSaveRefreshToken(Author author)
+        {
+            var refreshToken = GenerateRefreshToken();
+            author.RefreshToken = refreshToken;
+            author.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            await _context.SaveChangesAsync();
+            return refreshToken;
         }
 
         private string CreateToken(Author author)

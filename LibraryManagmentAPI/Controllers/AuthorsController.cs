@@ -1,11 +1,6 @@
-﻿using AutoMapper;
-using LibraryManagmentAPI.Data;
-using LibraryManagmentAPI.Models;
-using LibraryManagmentAPI.Models.Entities;
-using LibraryManagmentAPI.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using LibraryManagmentAPI.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentAPI.Controllers
 {
@@ -28,14 +23,7 @@ namespace LibraryManagmentAPI.Controllers
             return Ok(authorDtos);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddAuthor([FromBody] AddAuthorDto addAuthorDto)
-        {
-            var mappedAuthor = await _authorsService.AddAuthor(addAuthorDto);
-
-            return CreatedAtAction(nameof(GetAllAuthors), new { id = mappedAuthor.Id }, mappedAuthor);
-        }
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(Guid id)
         {
